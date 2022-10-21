@@ -1,0 +1,37 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.5'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+	id 'java'
+}
+
+group = 'com.yallowrvn'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb', version: '2.7.4'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.7.4'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '2.7.4'
+
+	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
+	annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
+
+	compileOnly group: 'org.mapstruct', name: 'mapstruct', version: '1.5.3.Final'
+	annotationProcessor group: 'org.mapstruct', name: 'mapstruct-processor', version: '1.5.3.Final'
+
+	testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.7.4'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
