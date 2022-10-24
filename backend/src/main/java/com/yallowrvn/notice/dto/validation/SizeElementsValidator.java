@@ -10,7 +10,7 @@ public class SizeElementsValidator implements ConstraintValidator<SizeElements, 
 
     @Override
     public boolean isValid(Collection<? extends CharSequence> value, ConstraintValidatorContext context) {
-        return value.stream().allMatch(e -> e.length() >= min && e.length() <= max);
+        return value == null || value.stream().allMatch(e -> e.length() >= min && e.length() <= max);
     }
 
     @Override

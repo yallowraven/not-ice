@@ -10,7 +10,7 @@ public class NotContainingStringElementsValidator
 
     @Override
     public boolean isValid(Collection<? extends CharSequence> value, ConstraintValidatorContext context) {
-        return value.stream().noneMatch(e -> e.toString().contains(string));
+        return value == null || value.stream().noneMatch(e -> e.toString().contains(string));
     }
 
     @Override
