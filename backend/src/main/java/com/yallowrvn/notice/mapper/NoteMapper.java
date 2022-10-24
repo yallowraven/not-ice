@@ -2,6 +2,7 @@ package com.yallowrvn.notice.mapper;
 
 import com.yallowrvn.notice.dto.incoming.NoteCreationDto;
 import com.yallowrvn.notice.dto.outgoing.NoteDto;
+import com.yallowrvn.notice.dto.outgoing.NotePreviewDto;
 import com.yallowrvn.notice.model.Note;
 import org.mapstruct.Mapper;
 
@@ -13,4 +14,6 @@ public interface NoteMapper {
 
     NoteDto noteToDto(Note note);
     Collection<NoteDto> notesToDtos(Collection<Note> notes);
+
+    Collection<NotePreviewDto> notesToPreviewDtos(Collection<Note> notes);
 }
