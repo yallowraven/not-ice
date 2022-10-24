@@ -18,6 +18,7 @@ import java.util.Optional;
 
 @Validated
 @RestController
+@CrossOrigin("http://localhost:3000")
 @RequestMapping("/notice-api/notes")
 public class NoteController {
     @Autowired
