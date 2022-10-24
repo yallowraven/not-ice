@@ -7,6 +7,7 @@ import java.util.List;
 
 @Data
 public class NotePreviewDto implements Serializable {
+    private String id;
     private String title;
     private List<String> tags;
 }
