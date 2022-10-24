@@ -27,7 +27,10 @@ public class Note {
         normalizedNote.setId(note.getId());
         normalizedNote.setTitle(note.getTitle().trim());
         normalizedNote.setContent(note.getContent());
-        normalizedNote.setTags(note.getTags().stream().map(String::trim).collect(Collectors.toList()));
+        normalizedNote.setTags(note.getTags().stream()
+                .map(String::trim)
+                .distinct()
+                .collect(Collectors.toList()));
 
         return normalizedNote;
     }
