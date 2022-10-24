@@ -3,6 +3,7 @@ package com.yallowrvn.notice.controller;
 import com.yallowrvn.notice.controller.exception.NotFoundException;
 import com.yallowrvn.notice.dto.incoming.NoteCreationDto;
 import com.yallowrvn.notice.dto.outgoing.NoteDto;
+import com.yallowrvn.notice.dto.outgoing.NotePreviewDto;
 import com.yallowrvn.notice.mapper.NoteMapper;
 import com.yallowrvn.notice.model.Note;
 import com.yallowrvn.notice.service.NoteService;
@@ -29,9 +30,9 @@ public class NoteController {
 
     //TODO: pagination
     @GetMapping
-    public Collection<NoteDto> getAllNotes() {
+    public Collection<NotePreviewDto> getAllNotes() {
         Collection<Note> notes = noteService.findAllNotes();
-        return noteMapper.notesToDtos(notes);
+        return noteMapper.notesToPreviewDtos(notes);
     }
 
     @GetMapping(value = "/{id}")
@@ -41,9 +42,9 @@ public class NoteController {
     }
 
     @GetMapping(params = "search")
-    public Collection<NoteDto> getAllNotesBySearchPrompt(@RequestParam String search) {
+    public Collection<NotePreviewDto> getAllNotesBySearchPrompt(@RequestParam String search) {
         Collection<Note> notes = noteService.findAllNotesBySearchPrompt(search);
-        return noteMapper.notesToDtos(notes);
+        return noteMapper.notesToPreviewDtos(notes);
     }
 
     @PostMapping
